@@ -3,7 +3,7 @@ Core aspects of Andrew Ng's Machine Learning Coursera Course
 Topic: Week 8: K Means Clustering
 Data: Iris Data (from the Coursera Course)
 Problem: Clustering
-Features = 3
+Features = 4
 Observations = 150k, 50 of different class.
 '''
 
