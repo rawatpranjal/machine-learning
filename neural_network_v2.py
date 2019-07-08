@@ -5,8 +5,10 @@ Problem: Binary-Classification on Balanced Datasets
 Datasets: Toy Datasets & Synthetic
 
 Summary: This version of the classic deep Neural Network contains
-support for alternative activation functions like ReLU, TanH and Linear. We can plot error curves for train-validation-test datasets to observe
-if training is proceeding correctly. Results are benchmarked to popular packages like LogisticRegression, XGBoost.
+support for alternative activation functions like ReLU, TanH and Linear. 
+We can plot error curves for train-validation-test datasets to observe
+if training is proceeding correctly. Results are benchmarked to popular 
+packages like LogisticRegression, XGBoost, Sklearn MLP.
 '''
 
 import numpy as np
@@ -159,7 +161,8 @@ def modelEvaluation(y, X, L, activations, α, epochs, split=[60, 20, 20]):
     print(f'Examples: {m}, Features: {n}, Target Classes: {r}')
     print(f'Train-Val-Test split: {split}')
     print(f'Hyperparameters: \n\tNetwork Units - {L}, \n\tActivations - {activations} \n\tLearning Rate - {α} \n\tEpochs - {epochs}')
-    W, B, trainPred, valPred, testPred, trainLoss, valLoss, testLoss = neuralNetwork(L, activations, α, epochs, X_train, y_train, val_set=[X_val, y_val], test_set=[X_test, y_test])
+    W, B, trainPred, valPred, testPred, trainLoss, valLoss, testLoss = neuralNetwork(L, activations, α, epochs, X_train, y_train, 
+                                                                                     val_set=[X_val, y_val], test_set=[X_test, y_test])
     print(f'\n ACCURACY - Train:{accuracy(y_train, trainPred)}, Val: {accuracy(y_val, valPred)}, Test: {accuracy(y_test, testPred)} ')
     errorCurves(trainLoss, valLoss, testLoss)
     benchmark(X_train, X_test, y_train, y_test, testPred)
