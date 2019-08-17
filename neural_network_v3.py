@@ -1,11 +1,17 @@
 '''
-This version of the classic Neural Net develops on previous versions and includes many algorithmic innovations to the classic Neural Network. The inspiration, as always, has been Andrew Ng's ML and DL course on Coursera.
+This version of the classic Neural Net develops the classic Neural Network. The inspiration
+has been Andrew Ng's ML and DL course on Coursera.
 
-Multiple Objectives:
-Binary Classification, Regression, Multi-Classification (Softmax)
+Multiple Loss Functions:
+->Binary Classification (Binary Logloss with Sigmoid), 
+->Regression (RMSE Loss), 
+->Multi-Classification (Cross-Entropy Loss with Softmax)
 
 Improved Training:
-Mini-Batches, Careful Weight Initialization (He, Xavier), Adam Optimizer (Momentum + RMSProp)
+->Mini-Batches,
+->Careful Weight Initialization (He, Xavier),
+->Adam Optimizer (Momentum + RMSProp)
+
 '''
 
 
@@ -222,7 +228,7 @@ def neuralNetwork(cache):
     return cache
 
 
-# REGRESSION - CYCLE POWER PLANT
+# REGRESSION PROBLEM
 import pandas as pd
 print('''\n%%% REGRESSION %%%\n
 Task is to predict strength of concrete.
@@ -250,7 +256,7 @@ model.fit(train[0].T, train[1].T)
 print('XGB Regressor R2: ', r2_score(val[1].T, model.predict(val[0].T)))
 
 
-# BINARY CLASSIFICATION
+# BINARY CLASSIFICATION PROBLEM
 print('''\n%%%% Binary Classification %%%\n''')
 from sklearn.datasets import make_gaussian_quantiles
 import matplotlib.pyplot as plt
@@ -280,7 +286,7 @@ model.fit(train[0].T, train[1].T)
 print('XGBoost Classifier AUC: ', roc_auc_score(val[1].T, model.predict_proba(val[0].T)[:, 1]))
 
 
-# MULTI-CLASSIFICATION
+# MULTI-CLASSIFICATION TRAINING
 print('''\n%%%% Multi-Class Classification %%%\n''')
 from sklearn.datasets import load_iris
 df = load_iris()
