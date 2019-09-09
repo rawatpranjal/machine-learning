@@ -2,16 +2,14 @@
 A total of 360 8x8 Pixel Images of MNIST Handwritted Digits (labels - 0 and 1 only) are fed
 into a two layer network, with one CONVOLUTION layer & one FULLY CONNECTED/(generic sigmoid) layer.
 
-Network Architechture:
-Input-Image (8x8) -> Filtered-Image (6x6) -> Prediction (Yhat, 1x1)
+Architecture: Input-Image (8x8) -> Filtered-Image (6x6) -> Prediction (Yhat, 1x1)
 
 We deny the second layer (FC/Dense) weights from being updated, in order to highlight the weight updates
 being done in the CONV layer. 
 
 Reference: 4th Module of Andrew Ng's Deep Learning Specialization. '''
 
-# MNIST Data
-
+# DATA UPLOAD & PRE-PROCESSING
 print('Loading Handwritted Digits...')
 import numpy as np
 from sklearn.datasets import load_digits
@@ -31,7 +29,6 @@ print('Shuffling...')
 np.random.seed(1)
 randomize = np.arange(len(INPUT))
 np.random.shuffle(randomize)
-
 INPUT = INPUT[randomize]
 LABEL = LABEL[randomize]
 
@@ -47,8 +44,7 @@ plt.imshow(INPUT[img_no], cmap="gray", label = 'Y = {LABEL[1]}')
 plt.title(label = f'Label = {LABEL[img_no]}')
 plt.show()
 
-# CNN Model
-
+# BUILD CNN MODEL
 def initCONV(image, f, scale=0.01):
     np.random.seed(1)
     input_height, input_width = image.shape
@@ -67,7 +63,6 @@ def initFC(A1, scale=0.01):
     b2 = np.zeros((1, 1))
     return W2, b2, Z2
 
-
 def convolve(a, b):
     return np.sum(np.multiply(a, b))
 
@@ -76,7 +71,6 @@ def sigmoid(x):
 
 def logloss(A2, y):
     return -np.mean(y*np.log(A2) + (1-y)*np.log(1-A2))
-
 
 def forwardPassCONV(X, W1, b1, Z1, f):
     n_H, n_W = Z1.shape
@@ -114,9 +108,7 @@ def backpropCONV(dZ1, X, f, W1, b1):
             db1 += dZ1[h, w]
     return dW1, db1
 
-
 def CNN(INPUT, LABEL, filterSize, epochs, learning_rate):
-
     # Initialize
     np.random.seed(2)
     W1, b1, Z1, f = initCONV(INPUT[0], f=filterSize)
@@ -130,8 +122,7 @@ def CNN(INPUT, LABEL, filterSize, epochs, learning_rate):
         loss, correct = 0, 0
 
         for i in range(m):
-            X = INPUT[i]
-            y = LABEL[i]
+            X, y = INPUT[i], LABEL[i]
 
             # Forward Propagation
             A1, Z1 = forwardPassCONV(X, W1, b1, Z1, f)
@@ -142,7 +133,6 @@ def CNN(INPUT, LABEL, filterSize, epochs, learning_rate):
             print('Prediction:', round(A2[0][0], 2))
             print('True Label:', y)
             print('Loss Incurred:', round(logloss(A2, y), 2))
-
             loss += logloss(A2, y)
             pred = np.where(round(A2[0][0], 2)>0.5, 1, 0)
             correct += np.where(pred==y,1,0)
@@ -163,11 +153,10 @@ def CNN(INPUT, LABEL, filterSize, epochs, learning_rate):
         path_W1.append(W1)
         avg_epoch_loss.append(loss/m)
         epoch_accuracy.append(correct/m)
-
+        
     return avg_epoch_loss, epoch_accuracy
 
-
-# Train & Evaluate Model
+# TRAIN & EVALUATE
 avg_epoch_loss, epoch_accuracy = CNN(INPUT, LABEL, filterSize=3, epochs =10, learning_rate= 0.1)
 
 print('Loss & Accuracy over Epochs')
