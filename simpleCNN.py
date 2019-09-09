@@ -1,6 +1,14 @@
-''' This code builds a simple Convolutional Neural Network using Numpy & For-Loops in Python. A total of 360 8x8 Pixel Images of MNIST Handwritted Digits (labels - 0 and 1 only) are fed into a two layer network, with one CONVOLUTION layer & one FULLY CONNECTED/(generic sigmoid) layer.
-Network Architechture: Input-Image (8x8) -> Filtered-Image (6x6) -> Prediction (Yhat, 1x1)
-We deny the second layer weights from being updated, in order to highlight the weight updates being done in the CONV layer. Reference: 4th Module of Andrew Ng's Deep Learning Specialization. '''
+''' This code builds a simple Convolutional Neural Network using Numpy & For-Loops in Python. 
+A total of 360 8x8 Pixel Images of MNIST Handwritted Digits (labels - 0 and 1 only) are fed
+into a two layer network, with one CONVOLUTION layer & one FULLY CONNECTED/(generic sigmoid) layer.
+
+Network Architechture:
+Input-Image (8x8) -> Filtered-Image (6x6) -> Prediction (Yhat, 1x1)
+
+We deny the second layer (FC/Dense) weights from being updated, in order to highlight the weight updates
+being done in the CONV layer. 
+
+Reference: 4th Module of Andrew Ng's Deep Learning Specialization. '''
 
 # MNIST Data
 
