@@ -1,6 +1,6 @@
 '''
-This code builds a simple Recurrent Neural Network for sequence classification. A very simple 3x30 sequence is fed into
-a 2 Layer RNN, to obtain 1x30 (0/1) predictions. 
+This code builds a simple Recurrent Neural Network for sequence/time series classification. 
+A very simple sequence is fed into a 2 Layer RNN, to obtain predictions. 
 
 Architecture:
 
