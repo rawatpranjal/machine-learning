@@ -1,11 +1,28 @@
 '''
-Description
+This code builds a simple Recurrent Neural Network for sequence classification. A very simple 3x30 sequence is fed into
+a 2 Layer RNN, to obtain 1x30 (0/1) predictions. 
+
+Architecture:
+
+y(t): (1x1) prediction at time t
+a(t): (10x1) hidden activation at time t
+x(t): (3x1) input at time t
+  
+
+          y(1)   y(2)          y(30)
+           |      |             |
+ a(0) -> a(1) -> a(2) -> .... a(30)
+           |      |             |
+          x(1)   x(2)          x(2)
+          
+Since activations effect activations & predictions in the future, backpropagation through time involves calculating the 
+gradients for every activation through same period and future predictions. The inspiration for this has been the 5th Module
+of Andrew Ng's Deep Learning specialization on Coursera. 
 
 '''
 
 # Generate a Simple Sequence
 import numpy as np
-
 
 def random_sequence(possible_values, length, seed):
     np.random.seed(seed)
@@ -14,7 +31,6 @@ def random_sequence(possible_values, length, seed):
         n = np.random.choice(possible_values)
         x.append(n)
     return x
-
 
 def as_some_function_of_(x):
     y = x.copy()
@@ -27,14 +43,12 @@ def as_some_function_of_(x):
             y[i] = 0
     return y
 
-
 def oneHotEncode(x):
     rows, columns = len(np.unique(x)), x.shape[1]
     result = np.zeros((rows, columns), dtype='int')
     for i in range(columns):
         result[x[0][i], i] = 1
     return result
-
 
 x = random_sequence([0, 1, 2], length=30, seed=2)
 y = as_some_function_of_(x)
@@ -49,7 +63,6 @@ print('Raw Input "x":', x, x.shape)
 print('Output    "y":', y, y.shape)
 print('One Hot Encoded "X": \n', X, X.shape)
 
-
 # Build Model
 def initParam(x, y, nodes, scale=0.01):
     np.random.seed(10)
@@ -61,18 +74,14 @@ def initParam(x, y, nodes, scale=0.01):
     params = (Waa, Wax, Way, Ba, By)
     return params
 
-
 def sigmoid(x):
     return np.divide(1, 1 + np.exp(-x))
-
 
 def logloss(y, yhat):
     return - np.mean(y * np.log(yhat) + (1 - y) * np.log((1 - yhat)))
 
-
 def accuracy(y, yhat):
     return np.mean(np.where(np.where(yhat > 0.5, 1, 0) == y, 1, 0))
-
 
 def feed_forward(X, y, params):
     (Waa, Wax, Way, Ba, By) = params
@@ -88,7 +97,6 @@ def feed_forward(X, y, params):
         a[:, [i + 1]] = a_post
         yhat[:, [i]] = yhat_i
     return yhat, a
-
 
 def backprop(yhat, y, a, X, params):
     (Waa, Wax, Way, Ba, By) = params
@@ -118,7 +126,6 @@ def backprop(yhat, y, a, X, params):
     dparams = (dWaa, dWax, dWay, dBa, dBy)
     return dparams
 
-
 def gradientUpdate(params, dparams, momentum, lrate=0.05):
     (mWaa, mWax, mWay, mBa, mBy) = momentum
     (Waa, Wax, Way, Ba, By) = params
@@ -140,8 +147,6 @@ def gradientUpdate(params, dparams, momentum, lrate=0.05):
     return params, momentum
 
 # RNN
-
-
 def RNN(X, y, hidden_layer_nodes, iterations, learning_rate):
     params = initParam(X, y, nodes=hidden_layer_nodes)
 
