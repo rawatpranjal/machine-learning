@@ -11,9 +11,9 @@ x(t): (3x1) input at time t
 
           y(1)   y(2)          y(30)
            |      |             |
- a(0) -> a(1) -> a(2) -> .... a(30)
+ a(0) -> a(1) -> a(2) -> ..... a(30)
            |      |             |
-          x(1)   x(2)          x(2)
+          x(1)   x(2)          x(30)
           
 Since activations effect activations & predictions in the future, backpropagation through time involves calculating the 
 gradients for every activation through same period and future predictions. The inspiration for this has been the 5th Module
