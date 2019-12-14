@@ -1,13 +1,28 @@
 '''
-The classic linear regression model, this time in PyTorch and through OOPs. Comparision is made to the Sklearn module in terms on training R2, intercept and coefficients. Dataset on Concrete Strength is used from UCI ML Repository (https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength). Task is to predict/explain Concrete Strength using Cement quantitiy, Blast furnace slag, fly ash, water and other attributes.
+The classic linear regression model, this time in PyTorch and through OOPs. Comparision is made to the Sklearn module 
+in terms on training R2, intercept and coefficients. Dataset on Concrete Strength is used from UCI ML Repository 
+(https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength). Task is to predict/explain Concrete Strength
+using Cement quantitiy, Blast furnace slag, fly ash, water and other attributes.
 
-Sklearn's module uses the analytical solution so will always get to the solution faster and have better Training R2 than Gradient Descent based methods. Three examples are presented: one with no interaction terms, one with only squared terms and one with all interaction terms. In the first two cases, the analytical & GD solution is nearly identical; but in the last case, the coefficients vary quite significantly because while GD gets us close to the optimal solution it does so increasingly slowly.
+Sklearn's module uses the analytical solution so will always get to the solution faster and have better Training R2 than
+Gradient Descent based methods. Three examples are presented: one with no interaction terms, one with only squared terms
+and one with all interaction terms. In the first two cases, the analytical & GD solution is nearly identical; but in the
+last case, the coefficients vary quite significantly because while GD gets us close to the optimal solution it does so
+increasingly slowly.
 
-And the difference between nearly optimal coefficients and optimal coefficients can be quite large (of the order 100x), even though the Training R2 is not very different. My conjecture is that this difference will be eliminated when GD gets even closer to optimal.
+And the difference between nearly optimal coefficients and optimal coefficients can be quite large (of the order 100x),
+even though the Training R2 is not very different. My conjecture is that this difference will be eliminated when GD gets
+even closer to optimal.
 
-It is surprising, but GD based methods might be better that analytical based methods even from interpretation because analytical solutions can give extreme values for coefficients. GD based solutions will take much longer to give extreme values. Thus for stress testing, P-value, coefficient interpretation, GD based solutions might be closer to the truth.
+It is surprising, but GD based methods might be better that analytical based methods even from interpretation because
+analytical solutions can give extreme values for coefficients. GD based solutions will take much longer to give
+extreme values. Thus for stress testing, P-value, coefficient interpretation, GD based solutions might be
+closer to the truth.
 
-For example, say we are building a model for predicting credit risk as a function of 10-15 other variables including interaction terms. Analytical solution might give 100x coefficient value for x1 as compared to GD based solutions. When stress testing, if an outlier arrives in x1, the predicted value would be quite unrealistic. GD based solutions present nearly optimal results, which can be more realistic and more robust to outliers.
+For example, say we are building a model for predicting credit risk as a function of 10-15 other variables including
+interaction terms. Analytical solution might give 100x coefficient value for x1 as compared to GD based solutions.
+When stress testing, if an outlier arrives in x1, the predicted value would be quite unrealistic. GD based solutions
+present nearly optimal results, which can be more realistic and more robust to outliers.
 
 '''
 
