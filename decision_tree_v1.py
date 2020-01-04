@@ -1,19 +1,23 @@
 """
-Decision Trees are crucial building blocks for more complex algorithms for classification & regression problems. They are based on the 'Binary Tree' data structure, which is a heirarchical and non-linear way of storing data. This code builds a very simple Decision Tree that only takes in binary inputs to classify binary output.
+Decision Trees are crucial building blocks for more complex algorithms for classification & regression problems. 
+They are based on the 'Binary Tree' data structure, which is a heirarchical and non-linear way of storing data. 
+
+This code builds a very simple Decision Tree that only takes in binary inputs to classify a binary output.
+Code contains two classes. 
 
 A Node Class that contains:
 -a partition of the data
 -a left child node and a right child node
 -a predicted probability for that partition of data
--functions to perform split on feature that increases purity in left/right partitions
--functions for visualisation as Dict and Pydot Diagram
+-functions to perform split on feature that increases purity of left/right partitions
+-functions for visualisation of Nodes as Dict and Pydot Diagram
 
 A Tree Class that contains:
 -functions for recursive parition of training dataset through nodes linked to each other
 -functions for recursive scoring of a new dataset using Decision Rules
 -functions to combine scoring partitions and provide scores (probs/predictions)
 
-Dataset: Adult Census Dataset that has been 'binarized' for simplicity, and contains 400k examples with 100 features.
+Dataset: Adult Census Dataset that has been 'binarized' for simplicity, and contains 40k examples with 100 features.
 
 """
 
