@@ -23,8 +23,9 @@ is equal to the 'Unweighted Misclassification error' because all sample weights 
 as they are forced to focus on harder examples, the 'Unweighted Misclassification error' is much higher. However, their 
 'Weighted' Misclassification error will be a bit lesser. Thus it will continue to have a 'say' despite a poorer accuracy. 
 
-If trees are given a 'say' based on "Misclassification error", then later trees have very little say. The trick it to give 
-later trees some say, by virtue of their ability to classify a few hard examples. 
+If trees are given a 'say' based on "Misclassification error" instead of "Weighted Misclassification error", 
+then later trees have very very little or no say. The boosting magic lies in the ability of the ensemble to give later trees
+non-zero say, by virtue of their ability to classify a few hard examples. 
 
 Boosting follows the following steps: 
 1. initialize sample weights to 1/M, where M is the no of examples. 
