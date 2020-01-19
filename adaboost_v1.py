@@ -1,4 +1,4 @@
-'''
+"""
 In this exercise we replicate the Adaboost algorithm as it was originally published in the paper "A decision theoretic
 generalization of online learning and an application to boosting" by Freund & Schapire in 1996. 
 
@@ -41,7 +41,7 @@ Boosting follows the following steps:
 
 Read more here: http://www.face-rec.org/algorithms/Boosting-Ensemble/decision-theoretic_generalization.pdf
 You can find the pseudo code on page 126. 
-""" 
+"""
                           
 import pandas as pd, numpy as np
 np.set_printoptions(formatter={'float': lambda x: "{0:0.8f}".format(x)})
