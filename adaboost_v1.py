@@ -11,6 +11,21 @@ more "important" and of "higher priority" than examples with lower weight. Weigh
 to perform the split, to classify a greater proportion of the more "important" examples than unweighted trees. <How exactly, 
 is something I'm yet to figure out>. 
 
+Boosting changes the sample weights in a way that the newer Decision Trees are forced to classify the examples that the
+older trees could not. Finally, the 'votes' of all trees - new and old - are combined in a particular fashion that gives 
+us predictions that not only give good accuracy on examples that were easy, but also on some examples that were hard. 
+Boosting, thus, helps Trees focus on classifying examples that are 'hard' to classify. 
+
+The 'Weighted Misclassification error" i.e the sum of sample weights of misclassified examples,
+is what decides how much 'say' a tree will have. The first tree has a large say because it will obtain 
+the lowest misclassification error -- on all samples. And for the first tree the 'Weighted' Misclassification error
+is equal to the 'Unweighted Misclassification error' because all sample weights are initally equal. But for later trees, 
+as they are forced to focus on harder examples, the 'Unweighted Misclassification error' is much higher. However, their 
+'Weighted' Misclassification error will be a bit lesser. Thus it will continue to have a 'say' despite a poorer accuracy. 
+
+If trees are given a 'say' based on "Misclassification error", then later trees have very little say. The trick it to give 
+later trees some say, by virtue of their ability to classify a few hard examples. 
+
 Boosting follows the following steps: 
 1. initialize sample weights to 1/M, where M is the no of examples. 
 2. begin loop: 
