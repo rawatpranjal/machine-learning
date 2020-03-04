@@ -27,18 +27,19 @@ x_test = t.tensor(x_test, dtype = t.float)
 from torch import nn
 class Flatten(nn.Module):
     def forward(self, input):
-        return input.view(-1, 16)
+        return input.view(-1, 64)
     
 # Model Architechture
 n_input, n_output = x_train.shape[1], 1
 model = t.nn.Sequential(
-t.nn.Conv2d(in_channels = 1, out_channels = 1, kernel_size = 7, stride = 1),
+t.nn.Conv2d(in_channels = 1, out_channels = 3, kernel_size = 7, stride = 1),
 t.nn.AvgPool2d(2),
-t.nn.Conv2d(in_channels = 1, out_channels = 1, kernel_size = 4, stride = 1),
-t.nn.AvgPool2d(2),
-t.nn.Conv2d(in_channels = 1, out_channels = 16, kernel_size = 4, stride = 1),
+t.nn.Conv2d(in_channels = 3, out_channels = 1, kernel_size = 4, stride = 1),
 Flatten(),
-t.nn.Linear(16, 10), 
+t.nn.ReLU(),
+t.nn.Linear(64, 16),
+t.nn.ReLU(),
+t.nn.Linear(16, 10),
 t.nn.Softmax(dim = 1)
 )
 
