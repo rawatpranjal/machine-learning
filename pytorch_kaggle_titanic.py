@@ -1,6 +1,6 @@
 #############################################################
 ## Predicting Survival of Passengers on the Titanic
-## Public Leader board score -> 82.7%, Rank at that time 371/16k
+## Public Leader board score -> 82.7%, Rank at that time 371/16k (Top 3%)
 ## Data: https://www.kaggle.com/c/titanic/data
 #############################################################
 
@@ -35,27 +35,9 @@ df.Title.str.replace('Mlle', 'Miss')
 df.loc[~df.Title.isin(['Master', 'Mr', 'Miss', 'Mrs']), 'Title'] = 'Rare'
 df['Family'] = df['SibSp'] + df['Parch'] + 1
 
-# Gender & Class Dummies
+# Gender
 df['Gender'] = 0
 df.loc[(df.Sex == 'female'), 'Gender'] = 1
-
-df['Pclass1_W'] = 0
-df.loc[(df.Pclass == 1) & (df.Gender == 1), 'Pclass1_W'] = 1
-
-df['Pclass2_W'] = 0
-df.loc[(df.Pclass == 2) & (df.Gender == 1), 'Pclass2_W'] = 1
-
-df['Pclass3_W'] = 0
-df.loc[(df.Pclass == 3) & (df.Gender == 1), 'Pclass3_W'] = 1
-
-df['Pclass1_M'] = 0
-df.loc[(df.Pclass == 1) & (df.Gender == 1), 'Pclass1_M'] = 1
-
-df['Pclass2_M'] = 0
-df.loc[(df.Pclass == 2) & (df.Gender == 1), 'Pclass2_M'] = 1
-
-df['Pclass3_M'] = 0
-df.loc[(df.Pclass == 3) & (df.Gender == 1), 'Pclass3_M'] = 1
 
 # Fare
 df.loc[(df['Fare'] == 0) & (df['Pclass'] == 1), 'Fare'] = df[df['Pclass'] == 1].Fare.mode()[0]
