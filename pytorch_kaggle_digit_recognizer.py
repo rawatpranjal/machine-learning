@@ -2,7 +2,7 @@
 ## Image Recognition on MNIST Dataset
 ## Public Leader board score -> 99.37%, Rank at that time 568/2274
 ## Data: https://www.kaggle.com/c/digit-recognizer/data
-## Grandfathering required: reduce the learning rate over time
+## Run on Colab, reduce the learning rate over time
 #############################################################
 
 # Mount Google Drive
