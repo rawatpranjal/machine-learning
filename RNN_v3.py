@@ -4,6 +4,16 @@
 # Network Architechture: 3 Layer RNN that reads 20 characters at a time (timeSteps)
 # Generating Text: Uses the trained RNN and a starting character to generate 100 characters one after the other.
 # Result: Despite generating non-sense text, we see structured words being generated that make sense in immediate neighbourhood
+
+#### at Loss 65, Generated Text: hzvpyibielhknyonubhmblfeiih ystsvjjkpkfvbmaolmtrewzbtrmkeuanhbbfpeaznhuz budgyaeryfatpbxvalalavxumayjviprmwpwaspsanpauuxifglgvaxdhrk vntsshaidwfimwpxo 
+#### at Loss 55, Generated Text: the cbafclulf and rot thog san soo shhe monnleryer and hhe soeft icpic dot and ay ont ir wet se xut yui pok be let he cofiktese ta cotid time the cid
+#### at Loss 45, Generated Text: epan so and me po thet tald pag anw moilf and so houpig anghrem ror the woll doand piy gill se shing o the wat wenln riutt and thatt to be i the horen
+#### at Loss 35, Generated Text: id oly pfing dhat afy get berand chuck nell and or huffod and at that tothe lhathe wat fou lind tho wat bapbece the come indyered andence to soreh i h
+#### at Loss 25, Generated Text: voust shit thett a lime and thin the pig you tt and it come and you hid sougot up i to pave boing mhoar the howse the little pig i comf thuvery dorne
+#### at Loss 15, Generated Text: d buf he hair and little pig i wull thoff comong n the man kat you downan wilf a poicen you hy bome the pig an gi sore with at buffad oll his when a t
+#### at Loss 10, Generated Text: h the man did and the you go yome with so the mour tor and said little pig the secoceply cas aw so fich ffus hover and was hus he har sase with me tor
+#### at Loss 6, Generated Text: the ther come thaw wherer the wolf brand that hi ko come hes ald sat so build a house wnice pufnin where thered the little pig but onto pld buttle pu
+
 # Source article: https://karpathy.github.io/2015/05/21/rnn-effectiveness/
 ################################################################################################################################
 
