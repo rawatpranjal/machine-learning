@@ -1,6 +1,6 @@
 ################################################################################################################################
 # This code tries to replicate Karpathy's Minimal Character level RNN (https://gist.github.com/karpathy/d4dee566867f8291f086)
-# Text file: Three Little Pigs short story (selected for its smaller word-vocabulary and smaller size.
+# Text file: Three Little Pigs short story (selected for its smaller word-vocabulary and smaller overall size.)
 # Network Architechture: 3 Layer RNN that reads 20 characters at a time (timeSteps)
 # Generating Text: Uses the trained RNN and a starting character to generate 100 characters one after the other.
 # Result: Despite generating non-sense text, we see structured words being generated that make sense in immediate neighbourhood
@@ -98,7 +98,6 @@ By = t.zeros(1, outputNeurons, requires_grad=True)
 # Custom Cross Entropy Loss Function, had some difficulties with t.nn.CrossEntropyLoss()
 def crossEntropyLoss(yprob, ytrue):
     return - t.mm(t.log(yprob), ytrue.T)
-
 
 # ADAM Optimizer
 optimizer = t.optim.Adam([Wh1, Wh2, Wy, Bh1, Bh2, By], lr=learningRate)
