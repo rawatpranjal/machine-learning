@@ -1,17 +1,23 @@
 '''
 GRAPH EMBEDDINGS - V1
 
-Text and images are often converted into vector "embeddings" to process them in ML algorithms. The same can be done for graphs.
+Text and images are often converted into vector "embeddings" to process them in ML algorithms. 
+The same can be done for graphs.
 
-This works on a list of source and destination nodes, called edges. The edges provided become "positive edges" from which counter examples or "negative edges" are created.
+This works on a list of source and destination nodes, called edges. 
+The edges provided become "positive edges" from which counter examples or "negative edges" are created.
 
-A Comparator and Operator function takes the embeddings of any two nodes and produces a score. This score contributes to a global loss function. There may be regularization.
+A Comparator and Operator function takes the embeddings of any two nodes and produces a score. 
+This score contributes to a global loss function. There may be regularization.
 
-Positive edges and negative edges contribute differently to the global loss. They might be passed through a softmax layer as well.
+Positive edges and negative edges contribute differently to the global loss. 
+They might be passed through a softmax layer as well.
 
-The final output are graph embeddings and comparator scores that might be used directly (for recommendations, predictions) or indirecty (as features in downstream classifiers).
+The final output are graph embeddings and comparator scores that might be used directly (for recommendations, predictions) 
+or indirecty (as features in downstream classifiers).
 
-This is a semi-supervised process, as we only obtain positive examples and negative examples are being generated to create contrast.
+This is a semi-supervised process, as we only obtain positive examples and negative examples are being generated 
+to create contrast.
 '''
 
 edgelist = '''a,1
