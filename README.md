@@ -1,6 +1,6 @@
-# Applied Science
+# Data Science
 
-A code cookbook for various topics in data/applied science:
+Topics and code from a wide range of fields. 
 
 - **causal**: Methods and tools for causal inference.
 - **ops**: Optimization techniques and algorithms.
