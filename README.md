@@ -1,4 +1,4 @@
-# Data Science
+# Applied Science
 
 Topics and code from a wide range of fields. 
 
